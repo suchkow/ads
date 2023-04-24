@@ -1,7 +1,10 @@
 N = int(input())
-matrix = [list(map(int, input().split())) for _ in range(N)]
+I = float('inf')
 
-dist = [float('inf')] * N
+matrix = [
+    [map(int, input().split())] for _ in range(N)
+]
+dist = [I] * N
 
 dist[0] = 0
 for i in range(N):
@@ -10,7 +13,7 @@ for i in range(N):
             if matrix[u][v] != -1 and dist[u] != float('inf') and dist[u] + matrix[u][v] < dist[v]:
                 dist[v] = dist[u] + matrix[u][v]
 
-d, r = 0, float('inf')
+d, r = 0, I
 
 for i in range(N):
     for j in range(N):
@@ -19,7 +22,4 @@ for i in range(N):
             r = min(r, max(dist[i], dist[j]))
 
 print(d)
-if r != float('inf'):
-    print(r)
-else:
-    print(0)
+print(r if r != I else 0)
