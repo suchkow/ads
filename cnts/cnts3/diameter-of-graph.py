@@ -10,8 +10,8 @@ for i in range(N):
             if matrix[u][v] != -1 and dist[u] != float('inf') and dist[u] + matrix[u][v] < dist[v]:
                 dist[v] = dist[u] + matrix[u][v]
 
-d = 0
-r = float('inf')
+d, r = 0, float('inf')
+
 for i in range(N):
     for j in range(N):
         if matrix[i][j] != -1:
