@@ -2,11 +2,13 @@
 #include <vector>
 
 
-class DisjointSetUnion {
+class DisjointSetUnion
+{
 public:
     explicit DisjointSetUnion(int size)
     {
-        for (int i = 0; i < size; ++i) {
+        for (int i = 0; i < size; ++i)
+        {
             _parent.push_back(i);
             _level.push_back(0);
         }

@@ -6,29 +6,50 @@
 class DisjointSetUnion
 {
 public:
-    DisjointSetUnion() { _parent = std::vector<int>(10, -1); }
-    explicit DisjointSetUnion(unsigned int size) { _parent = std::vector<int>(size, -1); }
+    DisjointSetUnion()
+    {
+        for (int i = 0; i < 10; ++i)
+        {
+            _parent.push_back(i);
+            _level.push_back(0);
+        }
+    }
+    explicit DisjointSetUnion(int size)
+    {
+        for (int i = 0; i < size; ++i)
+        {
+            _parent.push_back(i);
+            _level.push_back(0);
+        }
+    }
 
     int find_set(int v)
     {
-        int root = v;
-        while (_parent[root] != -1)
-            root = _parent[root];
-
-        while (_parent[v] != -1)
-        {
-            int next = _parent[v];
-            _parent[v] = root;
-            v = next;
-        }
-
-        return root;
+        if (v != _parent[v])
+            _parent[v] = find_set(_parent[v]);
+        return _parent[v];
     }
 
-    void union_set(int a, int b) { _parent[find_set(a)] = find_set(b); }
+    bool union_set(int a, int b)
+    {
+        a = find_set(a);
+        b = find_set(b);
+        if (a == b)
+            return false;
+
+        if (_level[a] < _level[b])
+            std::swap(a, b);
+
+        _parent[b] = a;
+        if (_level[a] == _level[b])
+            ++_level[a];
+
+        return true;
+    }
 
 private:
     std::vector<int> _parent;
+    std::vector<int> _level;
 };
 
 
