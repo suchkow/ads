@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 
 class DisjointSetUnion
@@ -74,7 +75,7 @@ int main() {
         vertices.push_back({from, to, weight});
     }
 
-    sort(vertices.begin(), vertices.end());
+    std::sort(vertices.begin(), vertices.end());
 
     DisjointSetUnion dsu(N);
 
