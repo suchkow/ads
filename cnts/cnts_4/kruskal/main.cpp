@@ -12,11 +12,11 @@ public:
         }
     }
 
-    int find_set(int u)
+    int find_set(int v)
     {
-        if (u != _parent[u])
-            _parent[u] = find_set(_parent[u]);
-        return _parent[u];
+        if (v != _parent[v])
+            _parent[v] = find_set(_parent[v]);
+        return _parent[v];
     }
 
     bool union_set(int a, int b)
@@ -35,6 +35,7 @@ public:
 
         return true;
     }
+
 private:
     std::vector<int> _parent;
     std::vector<int> _level;
@@ -73,14 +74,14 @@ int main() {
 
     int total_weight = 0;
     int total_edges = 0;
-    for (Vertex e : vertices)
+    for (Vertex vertex : vertices)
     {
         if (total_edges == N - 1)
             break;
 
-        if (dsu.union_set(e.from, e.to))
+        if (dsu.union_set(vertex.from, vertex.to))
         {
-            total_weight += e.weight;
+            total_weight += vertex.weight;
             ++total_edges;
         }
     }
