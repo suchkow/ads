@@ -65,8 +65,12 @@ int main() {
 
     for (int i = 0; i < M; ++i)
     {
-        int from, to, weight;
-        std::cin >> from >> to >> weight;
+        int from;
+        int to;
+        int weight;
+        std::cin >> from;
+        std::cin >> to;
+        std::cin >> weight;
         vertices.push_back({from, to, weight});
     }
 
