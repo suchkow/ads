@@ -9,6 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/cnts/cnts_4/disjoint_set_system/cmake-build-debug" />
       <excludeFolder url="file://$MODULE_DIR$/cnts/cnts_4/disjoint_set_system/cmake-build-debug" />
       <excludeFolder url="file://$MODULE_DIR$/cnts/cnts_4/disjoint_set_system/cmake-build-debug" />
+      <excludeFolder url="file://$MODULE_DIR$/CMakeFiles" />
+      <excludeFolder url="file://$MODULE_DIR$/cnts/cnts_4/disjoint_set_system/CMakeFiles" />
+      <excludeFolder url="file://$MODULE_DIR$/cnts/cnts_4/disjoint_set_system/cmake-build-debug" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
