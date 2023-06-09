@@ -26,9 +26,11 @@ int main()
         v.emplace_back(R, -1);
     }
 
-    std::sort(v.begin(), v.end(), [&](const point &left, const point &right) {
+    std::sort(v.begin(), v.end(), [&](const point &left, const point &right)
+    {
         return std::tie(left.first, right.second) < std::tie(right.first, left.second);
     });
+
     std::vector<int> cnt(v.size());
     cnt[0] = 1;
     int64_t ans = 0;
